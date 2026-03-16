@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "Welcome to the Docker with TypeScript Backend renamed",
+    message: "Welcome to the Docker with TypeScript latest version",
   });
 });
 

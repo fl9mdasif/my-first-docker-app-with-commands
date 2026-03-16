@@ -124,7 +124,7 @@ docker tag abc123def myapp:v1.0.0 myapp:latest
 **Push to Registry (Docker Hub):**
 
 ```bash
-# Tag your image with registry address
+# Tag your image with registry address / clone/ rename a image
 docker tag myapp:latest username/myapp:latest
 
 # Push to Docker Hub

@@ -1,0 +1,230 @@
+===============================================
+         DOCKER ESSENTIAL COMMANDS CHEAT SHEET
+===============================================
+
+========== IMAGE MANAGEMENT ==========
+
+# Build an image from a Dockerfile in the current directory
+docker build -t <image-name>:<tag num/ string> .
+
+# List all images
+docker image ls
+docker images -a 
+docker images
+
+# Remove/Delete an image by ID or name
+docker image rmi <image-id> <image-id>
+docker rmi <image-name>:<tag>
+
+# Remove all unused images
+docker image prune
+
+# Tag an image
+docker tag <image-id> <new-image-name>:<tag>
+
+# Push image to registry (Docker Hub)
+docker push <image-name>:<tag>
+
+# Pull image from registry
+docker pull <image-name>:<tag>
+
+# Inspect image details
+docker image inspect <image-id>
+
+========== CONTAINER MANAGEMENT ==========
+
+# Run a container from an image
+docker run <image-name>
+
+# Run a container in the background (detached mode)
+docker run -d <image-name>
+
+# Run a container with port mapping (host:container)
+docker run -p 5001:5000 <image-name>
+
+# Run a container with name
+docker run --name <container-name> <image-name>
+
+# Run a container and remove it after exit
+docker run --rm <image-name>
+
+# Run a container with environment variables
+docker run -e VAR_NAME=value <image-name>
+
+# Run a container with volume mount
+docker run -v /host/path:/container/path <image-name>
+
+# Run a container with interactive terminal
+docker run -it <image-name> /bin/bash
+
+# List all running containers
+docker container ls
+docker ps
+
+# List all containers (running and stopped)
+docker container ls -a
+docker ps -a
+
+# Stop a running container
+docker stop <container-id> <container-name>
+
+# Start a stopped container
+docker start <container-id> <container-name>
+
+# Restart a container
+docker restart <container-id> <container-name>
+
+# Kill a container (force stop)
+docker kill <container-id> <container-name>
+
+# Remove/Delete a stopped container
+docker container rm <container-id> <container-name>
+docker rm <container-name>
+
+# Remove all stopped containers
+docker container prune
+
+# View container logs
+docker logs <container-id>
+
+# View logs with follow option (real-time)
+docker logs -f <container-id>
+
+# Execute a command inside a running container
+docker exec -it <container-id> /bin/bash
+
+# Run a shell inside container
+docker exec -it <container-id> sh
+
+# Rename a container
+docker rename <old-name> <new-name>
+
+# Pause a container
+docker pause <container-id>
+
+# Unpause a container
+docker unpause <container-id>
+
+========== CONTAINER INSPECTION ==========
+
+# Get detailed information about a container
+docker inspect <container-id>
+
+# View running processes in a container
+docker top <container-id>
+
+# View container stats (CPU, memory usage)
+docker stats <container-id>
+
+# View events in real-time
+docker events
+
+========== NETWORKING COMMANDS ==========
+
+# List all networks
+docker network ls
+
+# Create a custom network
+docker network create <network-name>
+
+# Connect container to a network
+docker network connect <network-name> <container-name>
+
+# Disconnect container from a network
+docker network disconnect <network-name> <container-name>
+
+# Inspect a network
+docker network inspect <network-name>
+
+# Remove a network
+docker network rm <network-name>
+
+========== VOLUME COMMANDS ==========
+
+# List all volumes
+docker volume ls
+
+# Create a named volume
+docker volume create <volume-name>
+
+# Inspect a volume
+docker volume inspect <volume-name>
+
+# Remove a volume
+docker volume rm <volume-name>
+
+# Remove all unused volumes
+docker volume prune
+
+========== CLEANUP COMMANDS ==========
+
+# Remove all stopped containers
+docker container prune
+
+# Remove all unused images
+docker image prune
+
+# Remove all unused volumes
+docker volume prune
+
+# Remove all unused networks
+docker network prune
+
+# Remove all unused data (containers, images, volumes, networks)
+docker system prune
+
+# Remove all unused data including volumes
+docker system prune -a --volumes
+
+========== BUILD OPTIMIZATION ==========
+
+# Build with a specific Dockerfile
+docker build -f Dockerfile.prod -t <image-name>:<tag> .
+
+# Build without cache
+docker build --no-cache -t <image-name>:<tag> .
+
+# Build with build arguments
+docker build --build-arg NODE_ENV=production -t <image-name>:<tag> .
+
+========== DEBUGGING & TROUBLESHOOTING ==========
+
+# Check Docker version
+docker --version
+
+# View Docker system information
+docker info
+
+# View Docker disk usage
+docker system df
+
+# Show docker events
+docker events --filter 'type=container'
+
+# Get container logs
+docker logs --tail 100 <container-id>
+
+# Get logs with timestamps
+docker logs -t <container-id>
+
+========== DOCKER COMPOSE COMMANDS ==========
+
+# Start services defined in docker-compose.yml
+docker-compose up
+
+# Start services in background
+docker-compose up -d
+
+# Stop services
+docker-compose down
+
+# View logs
+docker-compose logs
+
+# Execute command in service
+docker-compose exec <service-name> <command>
+
+# Rebuild images
+docker-compose build
+
+===============================================
